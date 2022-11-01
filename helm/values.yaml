@@ -1,0 +1,7 @@
+image: gofaustino/time-app:0.0.1
+# Horizontal Pod Autoscaler configuration
+min_replicas: 1
+max_replicas: 3
+target_avg_cpu: 75
+# Minimum available replicas for the pod disruption budget
+pdb_min_available: 1

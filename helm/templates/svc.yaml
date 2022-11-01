@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app.kubernetes.io/name: {{ .Release.Name }}
+  annotations:
+{{ if .Values.public_load_balancer }}
+    service.beta.kubernetes.io/aws-load-balancer-scheme: "internet-facing"
+{{ else }}
+    service.beta.kubernetes.io/aws-load-balancer-internal: "true"
+    service.beta.kubernetes.io/aws-load-balancer-scheme: internal
+{{ end }}
+spec:
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: http
+  selector:
+    app.kubernetes.io/name: {{ .Release.Name }}
+  type: LoadBalancer

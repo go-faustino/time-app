@@ -1,0 +1,19 @@
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: {{ .Release.Name }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app.kubernetes.io/name: {{ .Release.Name }}
+spec:
+  scaleTargetRef:
+    kind: Deployment
+    name: {{ .Release.Name }}
+    apiVersion: apps/v1
+  minReplicas: {{ .Values.min_replicas }}
+  maxReplicas: {{ .Values.max_replicas }}
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        targetAverageUtilization: {{ .Values.target_avg_cpu }}

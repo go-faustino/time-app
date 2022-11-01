@@ -1,0 +1,14 @@
+[
+    {
+        "city": "New York",
+        "time_zone": "US/Eastern"
+    },
+    {
+        "city": "Berlin",
+        "time_zone": "Europe/Berlin"
+    },
+    {
+        "city": "Tokyo",
+        "time_zone": "Asia/Tokyo"
+    }
+]
