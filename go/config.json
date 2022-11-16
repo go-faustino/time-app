@@ -1,0 +1,14 @@
+[
+    {
+        "city": "New York",
+        "tz": "US/Eastern"
+    },
+    {
+        "city": "Berlin",
+        "tz": "Europe/Berlin"
+    },
+    {
+        "city": "Tokyo",
+        "tz": "Asia/Tokyo"
+    }
+]
